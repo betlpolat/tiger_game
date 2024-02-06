@@ -1,13 +1,13 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-import 'package:flame/extensions.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
-import '../game/tiger_game.dart';
 
 import '../game/assets.dart';
+import '../game/tiger_game.dart';
 
-class Tiger extends SpriteComponent with HasGameRef<TigerGame> {
+class Tiger extends SpriteComponent with HasGameRef<TigerGame>, CollisionCallbacks {
   Tiger();
 
   @override
@@ -26,6 +26,12 @@ class Tiger extends SpriteComponent with HasGameRef<TigerGame> {
     if (position.y <= 472) {
       position.y += 200 * dt;
     }
+  }
+
+  @override
+  onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollisionStart(intersectionPoints, other);
+    position.y += 100;
   }
 
   void jump() {

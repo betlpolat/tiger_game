@@ -1,17 +1,14 @@
 import 'package:flame/events.dart';
-import 'package:flame/extensions.dart';
 import 'package:flame/game.dart';
-import 'package:flame/input.dart';
 import 'package:flame/timer.dart';
 
 import '../components/background.dart';
-import '../components/cloud.dart';
 import '../components/cloud_group.dart';
 import '../components/ground.dart';
 import '../components/tiger.dart';
 import 'config.dart';
 
-class TigerGame extends FlameGame with TapDetector, MouseMovementDetector {
+class TigerGame extends FlameGame with TapDetector, MouseMovementDetector, HasCollisionDetection {
   TigerGame();
   late Tiger tiger;
   Timer interval = Timer(Config.cloudTimer, repeat: true);

@@ -12,9 +12,10 @@ class CloudGroup extends PositionComponent with HasGameRef<TigerGame> {
 
   @override
   Future<void> onLoad() async {
+    int xSize = game.size.x.toInt();
+
     await addAll([
-      Cloud(positionX: 50),
-      Cloud(positionX: 100),
+      Cloud(positionX: random.nextInt(xSize).toDouble()),
     ]);
   }
 

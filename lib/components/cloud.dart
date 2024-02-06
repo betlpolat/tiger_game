@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
+
 import '../game/assets.dart';
 import '../game/config.dart';
 import '../game/tiger_game.dart';
